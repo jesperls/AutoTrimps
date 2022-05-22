@@ -20,6 +20,9 @@ function autoStanceNew() {
 }
 
 function debugStance(maxPower, ignoreArmy) {
+    //Updates our stats
+    calcBaseDamageInX();
+
     //Returns what stance we should be using right now, or false if none grants survival
     for (var critPower=2; critPower >= -2; critPower--) {
         if      (survive("D",  critPower, ignoreArmy)) {return "D"  + critPower}
@@ -264,7 +267,7 @@ function autoStance() {
         const atMaxOneShotPower = (stance) => enemy && enemy.health > 0 && oneShotPower(stance) === maxOneShotPower(true);
         for (critPower=2; critPower >= -2; critPower--) {
             //Prefers more block when damage is not an issue
-            if      (survive("B",  critPower) && atMaxOneShotPower("B")) {setFormation(3); break;}
+            if      (survive("B",  critPower) && atMaxOneShotPower("B")) {setFormation(3);   break;}
             else if (survive("XB", critPower) && atMaxOneShotPower("X")) {setFormation("0"); break;}
 
             //Otherwise, prefers damage
