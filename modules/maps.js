@@ -1312,8 +1312,11 @@ function autoMap(hdStats, vmStatus) {
         bionicPool.sort(function (bionicA, bionicB) {return bionicA.level - bionicB.level});
         let bionicMaxLevel = 0;
         while (getMapRatio(vmStatus, undefined, 125 + 15 * bionicMaxLevel, bionicPool[0].difficulty) <= 1) {
-            if (humaneMapIsSafe(125 + 15 * bionicMaxLevel, bionicPool[0].size, bionicPool[0].difficulty))
+            if (humaneMapIsSafe(125 + 15 * bionicMaxLevel, bionicPool[0].size, bionicPool[0].difficulty)) {
                 bionicMaxLevel += 1;
+            } else {
+                break;
+            }
         }
         const tryBionicSniper = !game.achievements.oneOffs.finished[42] && (110 + 15 * bionicMaxLevel) >= z + 45;
         if (bionicMaxLevel > game.global.roboTrimpLevel || tryBionicSniper) {
