@@ -359,7 +359,7 @@ function autoLevelEquipment(hdStats, vmStatus) {
                 BuyWeaponUpgrades &= mirroredDailyOk;
 
                 //Delays Armor Prestiges if lacking damage to advance, but not health. Never delays shield prestiges tho.
-                BuyArmorUpgrades &= DelayArmorWhenNeeded || !enoughHealth || enoughDamage || equipmentList[equipName].Resource == "wood";
+                BuyArmorUpgrades &= !DelayArmorWhenNeeded || !enoughHealth || enoughDamage || equipmentList[equipName].Resource == "wood";
 
                 //Buy Prestiges
                 if (BuyWeaponUpgrades && equipStat == "attack" || BuyArmorUpgrades && (equipStat == "health" || equipStat == "block")) {
