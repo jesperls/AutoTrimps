@@ -757,8 +757,15 @@ function getVoidMapStatus() {
     rv.voidCell = (rv.voidCell > 0 ? rv.voidCell : 90);
 
     const lastClearedCell = game.global.lastClearedCell;
-    rv.prepareForVoids = (lastClearedCell + 1) >= Math.floor((rv.voidCell - 1) / 10) * 10;
-    rv.runVoidsNow = rv.prepareForVoids && lastClearedCell + 1 >= rv.voidCell;
+    if (getPageSetting('HumaneMode')) {
+        rv.prepareForVoids = true;
+        const diedOnce = game.achievements.humaneRun.progress().includes("be careful!");
+        rv.runVoidsNow = diedOnce || (lastClearedCell + oneShotPower(undefined, 0, true) >= 99);
+    }
+    else {
+        rv.prepareForVoids = (lastClearedCell + 1) >= Math.floor((rv.voidCell - 1) / 10) * 10;
+        rv.runVoidsNow = rv.prepareForVoids && lastClearedCell + 1 >= rv.voidCell;
+    }
     return rv;
 }
 
