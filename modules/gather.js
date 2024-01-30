@@ -59,7 +59,7 @@ function manualLabor2() {
 	var hasTurkimp = game.talents.turkimp2.purchased || game.global.turkimpTimer > 0;
 
 	//Verifies if trapping is still relevant
-	//Relevant means we gain at least 10% more trimps per sec while trapping (which basically stops trapping during later zones)
+	//As in, if we gain at least 10% more trimps per sec while trapping (which basically stops trapping during later zones)
 	//And there is enough breed time remaining to open an entire trap (prevents wasting time and traps during early zones)
 	var trappingIsRelevant = trapperTrapUntilFull || breedingPS().div(10).lt(calcTPS() * (game.portal.Bait.level + 1));
 	var trapWontBeWasted = breedTimeRemaining().gte(1 / calcTPS()) || game.global.playerGathering == "trimps" && breedTimeRemaining().lte(DecimalBreed(0.1));
@@ -87,13 +87,13 @@ function manualLabor2() {
 		}
 	}
 
-	//Build if we don't have foremany, there are 2+ buildings in the queue, or if we can speed up something other than a trap
+	//Builds if we don't have Foremany, there are 2+ buildings in the queue, or if we can speed up something other than a trap
 	if (!bwRewardUnlocked("Foremany") && game.global.buildingsQueue.length && (game.global.buildingsQueue.length > 1 || game.global.autoCraftModifier == 0 || (getPlayerModifier() > 100 && game.global.buildingsQueue[0] != 'Trap.1'))) {
 		setGather('buildings');
 		return;
 	}
 
-	//Also Build if we have storage buildings on top of the queue
+	//Also Builds if we have storage buildings on top of the queue
 	if (!bwRewardUnlocked("Foremany") && game.global.buildingsQueue.length && game.global.buildingsQueue[0] == 'Barn.1' || game.global.buildingsQueue[0] == 'Shed.1' || game.global.buildingsQueue[0] == 'Forge.1') {
 		setGather('buildings');
 		return;
@@ -105,7 +105,7 @@ function manualLabor2() {
 		return;
 	}
 
-	//Gather resources for Miner
+	//Gather resources for Miner (Early Game)
 	if (needMiner && (game.resources.metal.owned < 100 || game.resources.wood.owned < 300)) {
 		setGather(game.resources.metal.owned < 100 ? "metal" : "wood");
 		return;
@@ -117,10 +117,10 @@ function manualLabor2() {
 		return;
 	}
 
-	//Mid Priority Trapping
+	//Medium Priority Trapping
 	if (trapTrimpsOK && trappingIsRelevant && trapWontBeWasted && notFullPop && !lowOnTraps && !trapBuffering) { setGather('trimps'); return; }
 
-	//High Priority Research - When manual research still has more impact than scientists
+	//High Priority Research - When we need science and manual research still has more impact than scientists
 	if (getPageSetting('ManualGather2') != 2 && researchAvailable && needScience && getPlayerModifier() > getPerSecBeforeManual('Scientist')) {
 		setGather('science');
 		return;
@@ -137,7 +137,7 @@ function manualLabor2() {
 	//Metal if Turkimp is active
 	if (hasTurkimp) { setGather('metal'); return; }
 
-	//Mid Priority Research
+	//Medium Priority Research
 	if (getPageSetting('ManualGather2') != 2 && researchAvailable && needScience) { setGather('science'); return; }
 
 	//Low Priority Trap Building

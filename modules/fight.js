@@ -26,3 +26,7 @@ function betterAutoFight3() {
         fightManual();
     }
 }
+
+function humaneFight() {
+    var daggersNeeded = calcEnemyHealth("world", 1, 30, "Turtlimp") / calcOurDmg()
+}

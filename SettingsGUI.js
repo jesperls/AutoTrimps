@@ -697,7 +697,7 @@ function initializeAllSettings() {
     //C2 Timers
     document.getElementById('dhATGA2timer').parentNode.insertAdjacentHTML('afterend', '<br>');
     createSetting('cATGA2timer', 'ATGA: T: C2', '<b>ATGA Timer: C2s</b><br>ATGA will use this value in C2s. Overwrites Default, Before Z and After Z. ', 'value', '-1', null, 'ATGA');
-    createSetting('chATGA2timer', 'ATGA: T: C: Hard', '<b>ATGA Timer: Hard C2s</b><br>ATGA will use this value in C2s that are considered Hard. Electricity, Nom, Toxicity. Overwrites Default, Before Z and After Z and C2 ATGA', 'value', '3', null, 'ATGA');
+    createSetting('chATGA2timer', 'ATGA: T: C: Hard', '<b>ATGA Timer: Hard Challenges</b><br>ATGA will use this value in Challenges that are considered Hard. Electricity, Nom, Toxicity. Overwrites Default, Before Z and After Z and C2 ATGA', 'value', '3', null, 'ATGA');
 
     //Challenges
     createSetting('HumaneMode', 'Humane Mode', 'Legends speak of an universe where trimp lives have meaning, and you are worshipped as their saviour.<br><br>By enabling Humane mode, which was proposed by MrPitimp, a number of changes will take place so that AT will attempt to never fail the Humane Run challenge.<br><br><b>Recommended: OFF.</b> Humane is a very hard self-imposed challenge, so make sure this is what you really want.', 'boolean', false, null, 'Challenges');

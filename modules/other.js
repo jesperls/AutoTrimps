@@ -1815,10 +1815,8 @@ if (game.portal.Anticipation.level > 0) {
 }
 
 function avoidempower() {
-	if (!debugStance() || debugStance() != debugStance(true, true)) {
+	if (!debugStance() || debugStance() != debugStance(true, true))
 		mapsClicked(true);
-		return;
-	}
 }
 
 var spirebreeding = false;

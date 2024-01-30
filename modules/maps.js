@@ -1360,7 +1360,7 @@ function autoMap(hdStats, vmStatus) {
         }
     }
 
-    if ((game.global.challengeActive == 'Lead' && !challSQ) && !vmStatus.runVoidsNow && (z % 2 == 0 || game.global.lastClearedCell < MODULES.maps.shouldFarmCell)) {
+    if (game.global.challengeActive == 'Lead' && !vmStatus.runVoidsNow && (z % 2 == 0 || game.global.lastClearedCell < MODULES.maps.shouldFarmCell)) {
         if (game.global.preMapsActive)
             mapsClicked();
         return updateAutoMapsStatus(false, hdStats, vmStatus);
@@ -1441,12 +1441,12 @@ function autoMap(hdStats, vmStatus) {
             }
             if ((!getPageSetting('PowerSaving') || (getPageSetting('PowerSaving') == 2) && (vmStatus.runVoidsNow || vmStatus.prepareForVoids)) && game.global.switchToMaps &&
                 (needPrestige || (vmStatus.runVoidsNow || vmStatus.prepareForVoids) ||
-                    ((game.global.challengeActive == 'Lead' && !challSQ) && z % 2 == 1) ||
+                    ((game.global.challengeActive == 'Lead') && z % 2 == 1) ||
                     (!enoughDamage && enoughHealth && game.global.lastClearedCell < 9) ||
                     (shouldFarm && game.global.lastClearedCell >= MODULES.maps.shouldFarmCell)) &&
                 (
                     (game.resources.trimps.realMax() <= game.resources.trimps.owned + 1) ||
-                    ((game.global.challengeActive == 'Lead' && !challSQ) && game.global.lastClearedCell > 93) ||
+                    ((game.global.challengeActive == 'Lead') && game.global.lastClearedCell > 93) ||
                     ((vmStatus.runVoidsNow || vmStatus.prepareForVoids) && game.global.lastClearedCell > vmStatus.voidCell - 10)
                 )
             ) {

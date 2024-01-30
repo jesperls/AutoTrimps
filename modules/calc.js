@@ -748,8 +748,9 @@ function calcEnemyAttack(type, zone, cell = 99, name = "Snimp", minOrMax) {
 
     //Average corrupt impact on World times two - this is to compensate a bit for Corrupted buffs. Improbabilities count as 5.
     if (type == "world" && corrupt && !game.global.spireActive) {
-        //Corruption during Domination
-        if (game.global.challengeActive == "Domination") attack *= calcCorruptionScale(zone, 3);
+        //Full Corruption during Domination and Humane Mode (TODO Test it)
+        if (game.global.challengeActive == "Domination"/* || getPageSetting("HumaneMode")*/)
+            attack *= calcCorruptionScale(zone, 3);
 
         //Calculates the impact of the corruption on the average attack on that map. Improbabilities count as 5.
         else {
@@ -762,6 +763,9 @@ function calcEnemyAttack(type, zone, cell = 99, name = "Snimp", minOrMax) {
 
     //Healthy
     if (type == "world" && healthy && !game.global.spireActive) {
+        //Full Healthy during Humane Runs? TODO Test it
+        //if (getPageSetting("Humane Mode")) return calcCorruptionScale(zone, 5) / calcCorruptionScale(zone, 3);
+
         //Calculates the impact of the Healthy on the average attack on that map.
         var healthyAmount = 2 * Math.min(50, 2 + ~~((zone - 300) / 15)); //Integer division
         var healthyWeight = (100 - healthyAmount) + healthyAmount * calcCorruptionScale(zone, 5) / calcCorruptionScale(zone, 3);
