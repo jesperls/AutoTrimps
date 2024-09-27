@@ -17,7 +17,7 @@
 var script = document.createElement('script');
 script.id = 'AutoTrimps-Ray-Beta';
 //This can be edited to point to your own Github Repository URL.
-script.src = 'https://github-cdn.vercel.app/Psycho-Ray/AutoTrimps/beta/';
+script.src = 'https://github-cdn.vercel.app/jesperls/AutoTrimps/beta/';
 //script.setAttribute('crossorigin',"use-credentials");
 script.setAttribute('crossorigin',"anonymous");
 document.head.appendChild(script);
