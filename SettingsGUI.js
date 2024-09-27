@@ -1369,12 +1369,12 @@ function autoPlusSettingsMenu() {
 }
 
 function updateCustomButtons() {
+    lastTheme = game.options.menu.darkTheme.enabled;
     if (lastTheme && game.options.menu.darkTheme.enabled != lastTheme) {
     if (typeof MODULES["graphs"] !== 'undefined')
         MODULES["graphs"].themeChanged();
         debug("Theme change - AutoTrimps styles updated.");
     }
-    lastTheme = game.options.menu.darkTheme.enabled;
     function toggleElem(elem, showHide) {
         var $item = document.getElementById(elem);
         if ($item == null) return;
