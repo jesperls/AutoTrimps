@@ -1,4 +1,4 @@
-var ATversion = 'ZekRayDee v5.2';
+var ATversion = 'ZekRayDeeQuia v5.3';
 var atscript = document.getElementById('AutoTrimps-script');
 var basepath = 'https://github-cdn.vercel.app/jesperls/AutoTrimps/beta/', modulepath='modules/';
 atscript !== null && (basepath = atscript.src.replace(/AutoTrimps2\.js$/,''));
@@ -23,11 +23,12 @@ function initializeAutoTrimps() {
     for (var m in ATmoduleList) {
         ATscriptLoad(modulepath, ATmoduleList[m]);
     }
-    debug('AutoTrimps - Ray Fork Loaded!', '*spinner3');
+    debug('AutoTrimps - Ray+Quiaaaa Fork Loaded!', '*spinner3');
 }
 
 var changelogList = [];
-changelogList.push({date: "04/05/2022", version: "v5.2.0", description: "<b>v5.7.0</b> Thanks to livercat's awesome contribution, AT-Ray is now compatible with Steam Trimps!", isNew: true});
+changelogList.push({date: "27/09/2024", version: "v5.3.0", description: "<b>v5.8.0</b> Included code from Quiaaaa's fork to make graphs work again.", isNew: true});
+changelogList.push({date: "04/05/2022", version: "v5.2.0", description: "<b>v5.7.0</b> Thanks to livercat's awesome contribution, AT-Ray is now compatible with Steam Trimps!", isNew: false});
 changelogList.push({date: "15/01/2022", version: "v5.1.0", description: "<b>v5.6.5</b> This is the day that Psycho-Ray learned how to do buttons! (UI improvements incoming)", isNew: false});
 changelogList.push({date: "09/05/2021", version: "v5.0.0", description: "<b>v5.5.1</b> Psycho-Ray (Nevereth) here. This is a big overhaul for U1 :) ", isNew: false});
 changelogList.push({date: "15/09/2020", version: "v4.4.1", description: "<b>v5.4.0</b> Fixed things. Check your TF settings U2 people i added a toggle", isNew: false});
@@ -49,8 +50,7 @@ function printChangelog() {
     }
     var footer =
         '<b>Ray Fork</b> - <u>Report any bugs/problems please</u>!\
-        <br>Talk with the dev: <b>Psycho Ray (Nevereth)#8348</b> @ <a target="#" href="https://discord.com/channels/371177798305447938/371348913036197899">Trimps Discord Channel</a>\
-        <br>See <a target="#" href="https://github.com/Psycho-Ray/AutoTrimps/blob/gh-pages/README.md">ReadMe</a> Or check <a target="#" href="https://github.com/Psycho-Ray/AutoTrimps/commits/gh-pages" target="#">the commit history</a> (if you want).'
+        <br>See <a target="#" href="https://github.com/jesperls/AutoTrimps/blob/beta/README.md">ReadMe</a> Or check <a target="#" href="https://github.com/jesperls/AutoTrimps/commits/beta" target="#">the commit history</a> (if you want).'
     ,   action = 'cancelTooltip()'
     ,   title = 'Script Update Notice<br>' + ATversion
     ,   acceptBtnText = "Thank you for playing AutoTrimps. Accept and Continue."
