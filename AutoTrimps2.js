@@ -27,7 +27,7 @@ function initializeAutoTrimps() {
 }
 
 var changelogList = [];
-changelogList.push({date: "27/09/2024", version: "v5.3.0", description: "<b>v5.8.0</b> Included code from Quiaaaa's fork to make graphs work again.", isNew: true});
+changelogList.push({date: "27/09/2024", version: "v5.3.0", description: "<b>v5.9.2</b> Included code from Quiaaaa's fork to make graphs work again.", isNew: true});
 changelogList.push({date: "04/05/2022", version: "v5.2.0", description: "<b>v5.7.0</b> Thanks to livercat's awesome contribution, AT-Ray is now compatible with Steam Trimps!", isNew: false});
 changelogList.push({date: "15/01/2022", version: "v5.1.0", description: "<b>v5.6.5</b> This is the day that Psycho-Ray learned how to do buttons! (UI improvements incoming)", isNew: false});
 changelogList.push({date: "09/05/2021", version: "v5.0.0", description: "<b>v5.5.1</b> Psycho-Ray (Nevereth) here. This is a big overhaul for U1 :) ", isNew: false});
