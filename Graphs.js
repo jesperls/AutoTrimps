@@ -1468,12 +1468,10 @@ nextWorld = function () {
 	return originalnextWorld(...arguments);
 }
 
-//On Portal
-var originalactivatePortal = activatePortal;
-activatePortal = function () {
+
+pushData = function () {
 	try { Graphs.Push.zoneData(); }
 	catch (e) { Graphs.debugMsg("Gather info failed: ", e) }
-	return originalactivatePortal(...arguments)
 }
 
 // On Map start
